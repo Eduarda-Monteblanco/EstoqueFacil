@@ -6,6 +6,7 @@ from tkinter.filedialog import askopenfilename
 from PIL import ImageTk, Image  
 from pathlib import Path
 from tkinter.simpledialog import askstring
+from tkinter import messagebox, simpledialog
 
 pyglet.font.add_file('./utils/Anton.ttf')  
 
@@ -101,10 +102,6 @@ class MovementsScreen(tk.Tk):
 
         CSVHandler.edit_csv(codigo, quantidade)
 
-
-
-from tkinter import messagebox, simpledialog
-
 class CSVHandler():
     def __init__(self):
         super().__init__()
@@ -161,6 +158,7 @@ class CSVHandler():
                 f.close()
              
     def export_csv():
+        # copiar um arquivo de um lugar para o outro
         src = Path('./dados/inventario_final.csv')
         dest = Path('./export/inventario.csv')
         dest.write_bytes(src.read_bytes())
